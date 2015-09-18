@@ -1,0 +1,9 @@
+article_homepage:
+    path:     /
+    defaults: { _controller: BlogArticleBundle:Article:index }
+
+article_post:
+    path:     /post/{id}
+    defaults: { _controller: BlogArticleBundle:Article:post, id = 1 }
+    requirements:
+        id: \d+
