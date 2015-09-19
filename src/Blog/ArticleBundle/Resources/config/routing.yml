@@ -17,3 +17,9 @@ article_edit:
     defaults: { _controller: BlogArticleBundle:Article:edit }
     requirements:
         id: \d+
+
+article_delete:
+    path:     /delete/{id}
+    defaults: { _controller: BlogArticleBundle:Article:delete }
+    requirements:
+        id: \d+

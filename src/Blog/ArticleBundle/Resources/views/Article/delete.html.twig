@@ -1,0 +1,9 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <p>Вы действительно хотите удалить статью <strong>{{ article.articleTitle }}</strong> ?</p>
+    {{ form_start(deleteform) }}
+    {{ form_widget(deleteform) }}
+    {{ form_end(deleteform) }}
+{% endblock %}
+

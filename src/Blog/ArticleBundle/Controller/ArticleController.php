@@ -61,6 +61,30 @@ class ArticleController extends Controller
 
     }
 
+    public function deleteAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository("BlogArticleBundle:Article")->find($id);
+        if (!$article){
+            throw $this->createNotFoundException("Article not found");
+        }
+        $form = $this->createFormBuilder($article)
+            ->add("submit", "submit", array(
+            "label" => "Удалить"))->getForm();
+
+        $form->handleRequest($request);
+        if($form->isValid()){
+            $em->remove($article);
+            $em->flush();
+            return $this->redirect($this->generateUrl("article_homepage"));
+        }
+
+        return $this->render("BlogArticleBundle:Article:delete.html.twig", array(
+            'article' => $article,
+            'deleteform' => $form->createView(),
+        ));
+    }
+
     public function editAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
