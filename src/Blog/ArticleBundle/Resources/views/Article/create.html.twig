@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    {{  form_start(createform) }}
+        {{ form_errors(createform) }}
+
+        {{ form_row(createform.article_title) }}
+        {{ form_row(createform.article_text) }}
+        {{ form_row(createform.article_date) }}
+        {{ form_row(createform.article_ispublished) }}
+
+        {{ form_rest(createform) }}
+    {{ form_end(createform) }}
+
+{% endblock %}
+

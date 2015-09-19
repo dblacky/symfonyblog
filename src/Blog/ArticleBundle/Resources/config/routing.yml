@@ -7,3 +7,7 @@ article_post:
     defaults: { _controller: BlogArticleBundle:Article:post, id = 1 }
     requirements:
         id: \d+
+
+article_create:
+    path:     /create
+    defaults: { _controller: BlogArticleBundle:Article:create }
