@@ -11,3 +11,9 @@ article_post:
 article_create:
     path:     /create
     defaults: { _controller: BlogArticleBundle:Article:create }
+
+article_edit:
+    path:     /edit/{id}
+    defaults: { _controller: BlogArticleBundle:Article:edit }
+    requirements:
+        id: \d+

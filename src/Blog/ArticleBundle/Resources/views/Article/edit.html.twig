@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    {{  form_start(editform) }}
+    {{ form_errors(editform) }}
+
+    {{ form_row(editform.article_title) }}
+    {{ form_row(editform.article_text) }}
+    {{ form_row(editform.article_date) }}
+    {{ form_row(editform.article_ispublished) }}
+
+    {{ form_rest(editform) }}
+    {{ form_end(editform) }}
+{% endblock %}
+
