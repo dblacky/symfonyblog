@@ -1,1 +1,10 @@
-Hello
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <p><a href="{{ path('fos_user_registration_register') }}">Зарегистрировать нового пользователя</a></p>
+    <p><a href="{{ path('fos_user_profile_show') }}">Профиль</a></p>
+    <p><a href="{{ path('fos_user_change_password') }}">Изменить пароль</a></p>
+    <br />
+    <p><a href="{{ path('article_create') }}">Добавить статью</a></p>
+    <p><a href="{{ path('fos_user_security_logout') }}">Выйти</a></p>
+{% endblock content %}
