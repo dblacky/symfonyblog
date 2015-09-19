@@ -9,17 +9,17 @@ article_post:
         id: \d+
 
 article_create:
-    path:     /create
+    path:     /au/create
     defaults: { _controller: BlogArticleBundle:Article:create }
 
 article_edit:
-    path:     /edit/{id}
+    path:     /au/edit/{id}
     defaults: { _controller: BlogArticleBundle:Article:edit }
     requirements:
         id: \d+
 
 article_delete:
-    path:     /delete/{id}
+    path:     /au/delete/{id}
     defaults: { _controller: BlogArticleBundle:Article:delete }
     requirements:
         id: \d+

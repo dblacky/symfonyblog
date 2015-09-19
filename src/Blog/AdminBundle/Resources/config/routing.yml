@@ -1,3 +1,22 @@
-blog_admin_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: BlogAdminBundle:Default:index }
+admin_homepage:
+    path:     /
+    defaults: { _controller: BlogAdminBundle:Admin:index }
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_profile:
+    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    prefix: /profile
+
+fos_user_register:
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    prefix: /register
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+fos_user_change_password:
+    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    prefix: /change_password
