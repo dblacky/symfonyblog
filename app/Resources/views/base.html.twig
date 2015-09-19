@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        {% endblock %}
+        {% block javascripts_top %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}
-            {% block content %}
-            {% endblock content %}
-        {% endblock body%}
-        {% block javascripts %}{% endblock %}
+    {% block body %}
+        <div class="container">
+            <div class="row">
+                {% block headline %}{% endblock headline %}
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
+        {% block sidebar %}{% endblock sidebar %}
+        {% block footer %}{% endblock footer %}
+    {% endblock body%}
+    {% block javascripts_bottom %}{% endblock %}
     </body>
 </html>
