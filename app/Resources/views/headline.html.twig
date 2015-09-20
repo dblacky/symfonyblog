@@ -1,0 +1,54 @@
+{% block headline %}
+    <!-- Fixed navbar -->
+    {% stylesheets
+    'css/headline.css'
+    filter='cssrewrite' output='css/compiled/headline.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    {% javascripts
+    'js/headline.js'
+    output='js/compiled/headline.js' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <nav class="navbar navbar-default navbar-fixed-top headline">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path("article_homepage") }}">BLOG</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">About</a></li>
+                    {#<li><a href="#contact">Contact</a></li>#}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if is_granted("ROLE_USER") %}
+                        {% block admin %}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Админка <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('fos_user_registration_register') }}">Зарегистрировать нового пользователя</a></li>
+                                    <li><a href="{{ path('fos_user_profile_edit') }}">Профиль</a></li>
+                                    <li><a href="{{ path('fos_user_change_password') }}">Изменить пароль</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li class="dropdown-header">Управление статьями</li>
+                                    <li><a href="{{ path('article_create') }}">Добавить статью</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
+                                </ul>
+                            </li>
+                        {% endblock admin %}
+                    {% else %}
+                        <li><a href="{{ path('fos_user_security_login') }}">Войти</a></li>
+                    {% endif %}
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+{% endblock headline %}

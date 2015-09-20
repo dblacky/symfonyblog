@@ -33,7 +33,7 @@ security:
                 failure_path: /auth
             logout:
                 path:   /auth/logout
-                target: /auth
+                target: /
 
             anonymous: true
             # activate different ways to authenticate
