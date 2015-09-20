@@ -1,11 +1,14 @@
-{% extends '::base.html.twig' %}
+{% extends 'BlogArticleBundle::layout.html.twig' %}
 
 {% block content %}
     {% for article in articles %}
         {% if article.articleIspublished %}
-            <p><h2><a href="{{ path('article_post', {'id':article.id}) }}">{{ article.articleTitle }}</a></h2></p>
-            <p><strong>{{ article.articleDate | date("Y-m-d") }}</strong></p>
-            <p>{{ article.articleText }}</p>
+            <div class="index-post">
+                <p><h2><a href="{{ path('article_post', {'id':article.id}) }}">{{ article.articleTitle }}</a></h2></p>
+                <p><strong>{{ article.articleDate | date("Y-m-d") }}</strong></p>
+                <p>{{ article.articleText | slice(0, 500) | raw }}</p>
+                <strong><a href="{{ path('article_post', {'id':article.id}) }}">Читать далее...</a></strong>
+            </div>
         {% endif %}
     {% endfor %}
 {% endblock content %}

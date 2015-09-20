@@ -3,6 +3,6 @@
 {% block content %}
     <h2 class="blog-post-title">{{ article.articleTitle }}</h2>
     <p class="blog-post-meta">{{ article.articleDate | date("Y-m-d") }} by <a href="#">User</a></p>
-    <p>{{ article.articleText }}</p>
+    <p class="blog-post">{{ article.articleText }}</p>
 {% endblock %}
 
