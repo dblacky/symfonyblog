@@ -1,6 +1,10 @@
 {% extends 'BlogArticleBundle::layout.html.twig' %}
 
 {% block content %}
+    {% if is_granted("ROLE_USER") %}
+        <a class="btn btn-default" href="{{ path('article_edit',{"id": article.id}) }}" role="button">Редактировать статью</a>
+        <a class="btn btn-default" href="{{ path('article_delete', {"id": article.id}) }}" role="button">Удалить статью</a>
+    {% endif %}
     <h2 class="blog-post-title">{{ article.articleTitle }}</h2>
     <p class="blog-post-meta">{{ article.articleDate | date("Y-m-d") }} by <a href="#">User</a></p>
     <p class="blog-post">{{ article.articleText }}</p>
