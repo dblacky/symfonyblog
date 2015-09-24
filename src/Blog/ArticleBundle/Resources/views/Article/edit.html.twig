@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block content %}
-    {{  form_start(editform) }}
+    {{  form_start(editform, {attr: {novalidate: 'novalidate'}}) }}
     {{ form_errors(editform) }}
 
     {{ form_row(editform.article_title) }}

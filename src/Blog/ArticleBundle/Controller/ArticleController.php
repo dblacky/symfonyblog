@@ -34,6 +34,19 @@ class ArticleController extends Controller
 
     }
 
+    public function unpublishedAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT a
+            FROM BlogArticleBundle:Article a
+            WHERE a.article_ispublished = FALSE
+            ORDER BY a.article_date DESC');
+        $articles = $query->getResult();
+
+        return $this->render('BlogArticleBundle:Article:unpublished.html.twig', array('articles' => $articles));
+    }
+
     public function createAction(Request $request)
     {
         $article = new Article();

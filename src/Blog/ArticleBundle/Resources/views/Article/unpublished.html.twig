@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    {% if is_granted("ROLE_USER") %}
+        {% for article in articles %}
+        <p><h2><a href="{{ path('article_post', {'id':article.id}) }}">{{ article.articleTitle }}</a></h2></p>
+                <p><strong>{{ article.articleDate | date("Y-m-d") }}</strong></p>
+                <p>{{ article.articleText | slice(0, 500) | raw }}</p>
+                <strong><a href="{{ path('article_post', {'id':article.id}) }}">Читать далее...</a></strong>
+        {% endfor%}
+    {% endif %}
+{% endblock %}
+
